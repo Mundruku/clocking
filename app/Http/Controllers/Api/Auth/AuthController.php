@@ -38,7 +38,7 @@ class AuthController extends Controller
  
  
          if (!auth()->attempt($loginData)) {
-             return response(['message' => 'Invalid Password']);
+             return response(['error' => 'Invalid Password']);
          }
          
  

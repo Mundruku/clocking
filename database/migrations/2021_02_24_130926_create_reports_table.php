@@ -18,6 +18,7 @@ class CreateReportsTable extends Migration
             $table->integer('user_id');
             $table->time('time_in');
             $table->time('time_out');
+            $table->string('date_log');
             $table->timestamps();
         });
     }

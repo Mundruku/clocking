@@ -9,6 +9,6 @@ class Report extends Model
     //
 
     protected $fillable = [
-        'user_id', 'time_out', 'time_in',
+        'user_id', 'time_out', 'time_in', 'date_log'
     ];
 }

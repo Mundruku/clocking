@@ -120,7 +120,7 @@ class AdminController extends Controller
 
        //Add Report
 
-       public function add_report(Request $request, $id){
+       public function time_in(Request $request){
 
         
         /**Validate the data using validation rules
@@ -128,6 +128,7 @@ class AdminController extends Controller
     $validator = Validator::make($request->all(), [
         'user_id' => 'required',
         'time_in' => 'required',
+        'date_log'=>'required'
        
     ]);
 
@@ -149,10 +150,11 @@ class AdminController extends Controller
       $report = Report::create($newReport);
       
       if($report)
-      return response()->json(['user'=>$report, 'success'=>'time in succesfull'], 200);
+      return response()->json(['report'=>$report, 'success'=>'time in succesfull'], 200);
 
        }
     
+
 
 
 
