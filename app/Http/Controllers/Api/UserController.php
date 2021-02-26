@@ -88,7 +88,7 @@ class UserController extends Controller
        public function get_report(Request $request, $id){
 
         $report=Report::where('user_id', $id)->get();
-        return response()->json(['user'=>$report], 200);
+        return response()->json(['log'=>$report], 200);
         
        }
 

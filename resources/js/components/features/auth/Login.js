@@ -115,7 +115,7 @@ class Login extends Component {
                                     <input type="password" className='form-control form-control-lg' value={this.state.password} placeholder="Password" name="password" onChange={(e) => this.onInputChange(e)} />
                                     {password_empty}
                                 </div>
-                                <input type="submit" className="btn btn-info btn-block mt-4" />
+                                <button type="submit" className="btn btn-info">Login to Clocking</button>
 
                             </form>
                         </div>

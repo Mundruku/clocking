@@ -25,7 +25,9 @@ Route::prefix('user')->group(function () {
     Route::middleware('auth:api')->group(function(){
     
         Route::get('/logout', 'Api\Auth\AuthController@logout');
-        Route::post('/get/report/{id}', 'Api\UserController@get_report');
+        Route::get('/get/report/{id}', 'Api\AdminController@get_report');
+        Route::post('/time_in', 'Api\AdminController@time_in');
+        Route::post('/time_out/{id}', 'Api\AdminController@time_out');
     
     });
 
@@ -33,15 +35,17 @@ Route::prefix('user')->group(function () {
     // private routes for admin only
     Route::middleware('auth:api', 'admin:api')->group(function(){
     
-        Route::get('/logout', 'Api\Auth\AuthController@logout');
+      
 
         Route::post('/delete/{id}', 'Api\AdminController@delete_user');
         Route::post('/add', 'Api\AdminController@add_user');
         Route::post('/edit/{id}', 'Api\AdminController@edit_user');
-        Route::post('/get', 'Api\AdminController@get_users');
-        Route::post('/time_in', 'Api\AdminController@time_in');
-        Route::post('/get/reports/{id}', 'Api\AdminController@get_reports');
-        Route::post('/time_out/{id}', 'Api\AdminController@time_out');
+        Route::get('/get', 'Api\AdminController@get_users');
+        Route::get('/get', 'Api\AdminController@get_users');
+       
+        Route::post('/admin/get/user/{id}', 'Api\AdminController@get_user');
+        Route::get('/admin/get/users/{id}', 'Api\AdminController@get_user_specific');
+       
     
     });
     

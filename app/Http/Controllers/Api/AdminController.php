@@ -205,4 +205,36 @@ class AdminController extends Controller
 
        }
 
+
+       //get a user 
+
+       public function get_user(Request $request, $id){
+
+           $user=User::find($id);
+
+           if($user){
+            return response()->json(['user'=>$user], 200);
+           }
+       }
+
+
+       //Get logs for report
+
+       public function get_report(Request $request, $id){
+
+        $report=Report::where('user_id', $id)->orderBy('time_in', 'asc')->get();
+        return response()->json(['log'=>$report], 200);
+        
+       }
+
+       
+       //Get logs for report
+
+       public function get_user_specific(Request $request, $id){
+
+        $report=User::where('id', '!=', $id)->get();
+        return response()->json(['log'=>$report], 200);
+        
+       }
+
 }
